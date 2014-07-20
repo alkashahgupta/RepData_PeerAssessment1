@@ -126,7 +126,7 @@ A panel plot containing a time series plot (i.e. type = "l") of the 5-minute int
 ```r
 library(ggplot2)
 y<-aggregate(steps~interval+day,x,mean)
-ggplot(y,aes(interval,steps))+geom_line(color="blue")+ facet_wrap(~day,nrow=2)+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),strip.background = element_rect( fill="#F5DEC1"))
+ggplot(y,aes(interval,steps))+geom_line(aes(color=day))+ facet_wrap(~day,nrow=2)+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),strip.background = element_rect( fill="#F5DEC1"))
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
