@@ -111,8 +111,8 @@ x$day<-as.factor(x$day)
 
 A panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
 
-```{r,fig.height=8}
+```{r,fig.height=8,fig.width=8}
 library(ggplot2)
 y<-aggregate(steps~interval+day,x,mean)
-ggplot(y,aes(interval,steps))+geom_line(color="blue")+ facet_wrap(~day,nrow=2)+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),strip.background = element_rect( fill="#F5DEC1"))
+ggplot(y,aes(interval,steps))+geom_line(aes(color=day))+ facet_wrap(~day,nrow=2)+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),strip.background = element_rect( fill="#F5DEC1"))
 ```
